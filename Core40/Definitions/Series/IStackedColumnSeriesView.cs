@@ -43,5 +43,9 @@ namespace LiveCharts.Definitions.Series
         /// The column padding.
         /// </value>
         double ColumnPadding { get; set; }
+        /// <summary>
+        /// Gets or sets visibility if value is zero
+        /// </summary>
+        bool ShowIfZero { get; set; }
     }
 }

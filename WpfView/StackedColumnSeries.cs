@@ -138,6 +138,11 @@ namespace LiveCharts.Wpf
         /// </summary>
         public static readonly DependencyProperty GroupingProperty =
             DependencyProperty.Register("Grouping", typeof(object), typeof(StackedColumnSeries), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Gets or sets visibility if value is zero
+        /// </summary>
+        public bool ShowIfZero { get; set; }
         #endregion
 
         #region Overridden Methods

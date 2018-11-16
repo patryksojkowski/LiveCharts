@@ -171,6 +171,9 @@ namespace LiveCharts
                 .XStart(v => v.StartPoint)
                 .X(v => v.EndPoint), SeriesOrientation.Vertical);
 
+            For<int?>(Mappers.Xy<int?>()
+                .X((value, index) => index)
+                .Y(value => value ?? double.NaN), SeriesOrientation.Horizontal); //if value does not exist change it to NaN (will be ignored)
         }
 
         /// <summary>

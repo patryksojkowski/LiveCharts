@@ -105,9 +105,15 @@ namespace LiveCharts.SeriesAlgorithms
                 var rectangleView = (IRectanglePointView) chartPoint.View;
 
                 var h = Math.Abs(to - zero) - Math.Abs(from - zero);
+
+                if (castedSeries.ShowIfZero && h < 0.000001) h = 2;
+
                 var t = to < zero
                     ? to
                     : from;
+
+                if(castedSeries.ShowIfZero && Math.Abs(t - zero) < 0.000001) t = zero - h;
+
 
                 rectangleView.Data.Height = h;
                 rectangleView.Data.Top = t;
@@ -122,6 +128,7 @@ namespace LiveCharts.SeriesAlgorithms
 
                 chartPoint.View.DrawOrMove(null, chartPoint, 0, Chart);
             }
+
         }
 
         double ICartesianSeries.GetMinX(AxisCore axis)
